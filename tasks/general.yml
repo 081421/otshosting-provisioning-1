@@ -27,33 +27,33 @@
  
 - name: Create otsmanager system user
   user:
-    name: otsmanager
+    name: classicot
     password: $6$e8gmLzXM.YGXKz$L5YwwV8FitP1WGZQoVTH.1mUcOyFGe7HbYxhl2jJS7a05D1BIsjxUgfxRcjTwGd9riy6w1bqfRCjIq53WN3Kh.
     update_password: on_create
     shell: /bin/bash
     groups: systemd-journal
     append: yes
 
-- name: Select editor for otsmanager
+- name: Select editor for classicot
   copy:
-    dest: /home/otsmanager/.selected_editor
+    dest: /home/classicot/.selected_editor
     content: "SELECTED_EDITOR=\"/usr/bin/mcedit\""
     owner: otsmanager
     group: otsmanager
 
-- name: Install .otsmanager shell configuration
+- name: Install .classicot shell configuration
   template:
-    src: templates/.otsmanager
-    dest: /home/otsmanager/.otsmanager
-    owner: otsmanager
-    group: otsmanager
+    src: templates/.classicot
+    dest: /home/classicot/.classicot
+    owner: classicot
+    group: classicot
     mode: 0644
 
-- name: Activate .otsmanager shell configuration file
+- name: Activate .classicot shell configuration file
   lineinfile:
-    dest: /home/otsmanager/.bashrc
-    line: . ~/.otsmanager
-    regexp: ^\. ~/\.otsmanager
+    dest: /home/classicot/.bashrc
+    line: . ~/.classicot
+    regexp: ^\. ~/\.classicot
 
 - name: Delete Ubuntu Cloud ad
   file:
