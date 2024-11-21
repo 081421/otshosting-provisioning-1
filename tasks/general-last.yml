@@ -1,8 +1,8 @@
 ---
 - name: Create public_html directory
   file:
-    path: /home/otsmanager/www/public_html
-    owner: otsmanager
-    group: otsmanager
+    path: /home/classicot/www/public_html
+    owner: classicot
+    group: classicot
     mode: 0755
     state: directory
